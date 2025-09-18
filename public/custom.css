@@ -1,0 +1,102 @@
+body {
+  font-family: "Varela Round", sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  padding: 10px 16px;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-size: 20px;
+  color: #dd5638;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: #435d7d;
+}
+
+/* Circle button */
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  border-radius: 50%;
+}
+
+/* Card */
+.card-title {
+  color: #fff;
+  background: #435d7d;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #435d7d;
+  color: #f7f7f7;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.footer a {
+  color: #d9d9d9;
+  text-decoration: none;
+}
+
+/* =============================
+   RESPONSIVE FIXES
+   ============================= */
+
+/* Small screens (phones) */
+@media (max-width: 576px) {
+  .navbar .navbar-brand {
+    font-size: 16px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    padding: 12px 14px;
+    text-align: center;
+  }
+
+  .btn-circle {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 15px 8px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+}
