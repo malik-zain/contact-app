@@ -1,10 +1,12 @@
 import express from "express";
 const app = express();
-const port = 3000;
 import contactRoutes from "./Routes/contact.routes.js";
 import Contact from "./models/contacts.models.js";
 import { Connectdb } from "./config/database.js";
 Connectdb.connect();
+
+//port
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.set("views", "views");

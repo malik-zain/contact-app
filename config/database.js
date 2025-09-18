@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Connect to MongoDB
 export const Connectdb = {
   connect: () => {
     mongoose
-      .connect("mongodb://127.0.0.1:27017/contact-curd")
+      .connect(process.env.MONGODB_URL)
       .then(() => {
         console.log("✅ Connected to MongoDB");
       })
