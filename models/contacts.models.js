@@ -1,4 +1,7 @@
 import mongoose from 'mongoose'; 
+import mongoosePaginate from 'mongoose-paginate-v2';
+
+mongoose.plugin(mongoosePaginate);
 
 const contactSchema = new mongoose.Schema({
   firstname: String,

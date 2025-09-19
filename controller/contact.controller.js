@@ -5,9 +5,28 @@ import mongoose from "mongoose";
 //home
 export const home = async (req, res) => {
   try {
-    const contacts = await Contact.find();
+    const { page = 1, limit = 4} = req.query;
+    const contacts = await Contact.find()
+      .limit(limit * 1)
+      .skip((page - 1) * limit)
+      .exec();
+    const result = await Contact.paginate(
+      {},
+      { page: req.query.page || 1, limit: 4 }
+    );
     console.log(contacts);
-    res.render("home", { contacts });
+    res.render("home", {
+      totalDocs: result.totalDocs,
+      limit: result.limit,
+      totalPages: result.totalPages,
+      currentPage: result.page,
+      Counter: result.pagingCounter,
+      hasPrevPage: result.hasPrevPage,
+      hasNextPage: result.hasNextPage,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
+      contacts: result.docs,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error fetching contacts");
@@ -83,7 +102,7 @@ export const postUpdateContact = async (req, res) => {
       res.render("404", { message: "Contact not found" });
       return;
     }
-    res.redirect("/", { contact });
+    res.redirect("/");
   } catch (err) {
     res.render("500", { message: err });
   }
@@ -103,7 +122,8 @@ export const deleteContact = async (req, res) => {
       res.render("404", { message: "Contact not found" });
       return;
     }
-    res.redirect("/", { contact });
+    // res.redirect("/", { contact });
+    res.redirect("/");
   } catch (err) {
     res.render("500", { message: err });
   }
